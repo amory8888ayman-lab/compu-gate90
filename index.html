@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compu-Gate | قوة الأداء في كل قطعة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="grid-bg"></div>
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo">
+                <span class="logo-icon"><i class="fa-solid fa-microchip"></i></span>
+                <span class="logo-text">Compu-<span>Gate</span></span>
+            </a>
+
+            <div class="nav-right">
+                <button type="button" class="cart-trigger" id="openCartBtn">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-label">التجميعة</span>
+                    <span class="cart-badge" id="cartCount">0</span>
+                </button>
+
+                <div class="social-top">
+                    <a href="https://wa.me/201124506681" target="_blank" class="social-btn wa" title="واتساب">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <a href="#" class="social-btn fb" title="فيسبوك">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-btn ig" title="إنستجرام">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="hero" class="hero">
+        <div class="container hero-center">
+            <div class="status-pill">
+                <span class="dot"></span>
+                <span>بوابة الهاردوير المستقلة • فحص وضمان حقيقي</span>
+            </div>
+
+            <h1>أهلاً بك في <span class="gradient-name">Compu-Gate</span><br><span class="sub-headline">قوة الأداء في كل قطعة</span></h1>
+
+            <p>بروسيسورات، كروت شاشة، رامات استيراد بحالة ممتازة مختارة بعناية لتشغيل أحدث الألعاب وبرامج الشغل الثقيلة بأعلى كفاءة وأفضل قيمة مقابل سعر.</p>
+
+            <div class="hero-actions">
+                <a href="#products" class="btn-glow">
+                    <i class="fa-solid fa-bolt"></i> ادخل البوابة واستكشف القطع
+                </a>
+                <a href="https://wa.me/201124506681" target="_blank" class="btn-outline">
+                    <i class="fa-brands fa-whatsapp"></i> تواصل مباشر
+                </a>
+            </div>
+
+            <div class="hero-highlights">
+                <div class="highlight-item">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span>اختبار ضغط Stress Test قبل البيع</span>
+                </div>
+                <div class="highlight-item">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span>أقسام مستقلة للرامات والبورسبلاي والشاشات</span>
+                </div>
+                <div class="highlight-item">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span>ترشيح تجميعة مناسبة لميزانيتك</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="store-section">
+        <div class="container">
+            <div class="gateways-block">
+                <div class="gateways-head">
+                    <span class="gateways-tag">تصفح حسب القسم</span>
+                    <h2>بوابات الهاردوير المستقلة</h2>
+                </div>
+
+                <div class="gateways-grid" id="categoryGateways"></div>
+            </div>
+
+            <div class="toolbar">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="searchInput" placeholder="ابحث عن القطعة مثلاً: i7 4790، RX 580، 16GB، DDR4، SSD...">
+                </div>
+
+                <select id="budgetFilter" class="budget-select">
+                    <option value="all">كل الميزانيات</option>
+                    <option value="budget">أقل من 2,000 ج.م</option>
+                    <option value="mid">من 2,000 إلى 4,500 ج.م</option>
+                    <option value="high">أعلى من 4,500 ج.م</option>
+                </select>
+
+                <span class="results-badge" id="resultsCount">عدد القطع: 0</span>
+            </div>
+
+            <div id="productsGrid"></div>
+        </div>
+    </section>
+
+    <!-- سلة التجميعة -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3><i class="fa-solid fa-cart-shopping"></i> سلة التجميعة</h3>
+            <button type="button" class="close-cart" id="closeCartBtn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-items" id="cartItemsContainer"></div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span>الإجمالي:</span>
+                <strong id="cartTotal">0 ج.م</strong>
+            </div>
+            <button type="button" class="btn-checkout-wa" id="checkoutWaBtn">
+                <i class="fa-brands fa-whatsapp"></i> إرسال الطلب عبر واتساب
+            </button>
+            <button type="button" class="btn-clear-cart" id="clearCartBtn">إفراغ السلة</button>
+        </div>
+    </aside>
+
+    <div class="toast" id="toast"></div>
+
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="logo-text">Compu-<span>Gate</span></span>
+                    <p>بوابتك الأولى لقطع الهاردوير المستعملة المضمونة والرامات والبورسبلاي والشاشات بأعلى كفاءة وأفضل سعر.</p>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>تواصل معنا واطلب قطعتك</h3>
+                    <div class="footer-socials">
+                        <a href="https://wa.me/201124506681" target="_blank" class="f-social wa">
+                            <i class="fa-brands fa-whatsapp"></i> واتساب: 01124506681
+                        </a>
+                        <a href="#" class="f-social fb">
+                            <i class="fa-brands fa-facebook-f"></i> فيسبوك
+                        </a>
+                        <a href="#" class="f-social ig">
+                            <i class="fa-brands fa-instagram"></i> إنستجرام
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                Compu-Gate © جميع الحقوق محفوظة
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/201124506681" target="_blank" class="floating-wa" title="تواصل عبر واتساب">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
